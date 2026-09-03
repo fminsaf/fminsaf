@@ -34,7 +34,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 			<head>
 				<HeadContent />
 			</head>
-			<body>
+			<body className="max-w-7xl mx-auto p-3 bg-stone-300 text-taupe-900">
 				{children}
 				<TanStackDevtools
 					config={{
