@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PortfolioRouteRouteImport } from './routes/_portfolio/route'
 import { Route as PortfolioIndexRouteImport } from './routes/_portfolio/index'
+import { Route as PortfolioHireMeRouteImport } from './routes/_portfolio/hire-me'
+import { Route as PortfolioProjectsRouteImport } from './routes/_portfolio/projects'
 
 const PortfolioRouteRoute = PortfolioRouteRouteImport.update({
   id: '/_portfolio',
@@ -21,24 +23,45 @@ const PortfolioIndexRoute = PortfolioIndexRouteImport.update({
   path: '/',
   getParentRoute: () => PortfolioRouteRoute,
 } as any)
+const PortfolioHireMeRoute = PortfolioHireMeRouteImport.update({
+  id: '/hire-me',
+  path: '/hire-me',
+  getParentRoute: () => PortfolioRouteRoute,
+} as any)
+const PortfolioProjectsRoute = PortfolioProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => PortfolioRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof PortfolioIndexRoute
+  '/hire-me': typeof PortfolioHireMeRoute
+  '/projects': typeof PortfolioProjectsRoute
 }
 export interface FileRoutesByTo {
+  '/hire-me': typeof PortfolioHireMeRoute
+  '/projects': typeof PortfolioProjectsRoute
   '/': typeof PortfolioIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_portfolio': typeof PortfolioRouteRouteWithChildren
+  '/_portfolio/hire-me': typeof PortfolioHireMeRoute
+  '/_portfolio/projects': typeof PortfolioProjectsRoute
   '/_portfolio/': typeof PortfolioIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/hire-me' | '/projects'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/_portfolio' | '/_portfolio/'
+  to: '/hire-me' | '/projects' | '/'
+  id:
+    | '__root__'
+    | '/_portfolio'
+    | '/_portfolio/hire-me'
+    | '/_portfolio/projects'
+    | '/_portfolio/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -61,14 +84,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioIndexRouteImport
       parentRoute: typeof PortfolioRouteRoute
     }
+    '/_portfolio/hire-me': {
+      id: '/_portfolio/hire-me'
+      path: '/hire-me'
+      fullPath: '/hire-me'
+      preLoaderRoute: typeof PortfolioHireMeRouteImport
+      parentRoute: typeof PortfolioRouteRoute
+    }
+    '/_portfolio/projects': {
+      id: '/_portfolio/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof PortfolioProjectsRouteImport
+      parentRoute: typeof PortfolioRouteRoute
+    }
   }
 }
 
 interface PortfolioRouteRouteChildren {
+  PortfolioHireMeRoute: typeof PortfolioHireMeRoute
+  PortfolioProjectsRoute: typeof PortfolioProjectsRoute
   PortfolioIndexRoute: typeof PortfolioIndexRoute
 }
 
 const PortfolioRouteRouteChildren: PortfolioRouteRouteChildren = {
+  PortfolioHireMeRoute: PortfolioHireMeRoute,
+  PortfolioProjectsRoute: PortfolioProjectsRoute,
   PortfolioIndexRoute: PortfolioIndexRoute,
 }
 
