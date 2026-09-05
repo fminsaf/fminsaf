@@ -10,7 +10,7 @@ function RouteComponent() {
 		<div className="max-w-7xl mx-auto p-3">
 			<Sidebar />
 
-			<main className="ml-16 lg:ml-72 p-3">
+			<main className="ml-16 lg:ml-72 px-3 py-10 space-y-5">
 				<Outlet />
 			</main>
 		</div>
