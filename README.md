@@ -8,17 +8,7 @@ I build **web applications, developer tools, and products** while constantly exp
 > 
 > Seeking beneficial knowledge, doing meaningful work, and building things that have a positive impact.
 
-## What I'm into
-
-* 🧑‍💻 Full-stack web development
-* 🚀 Building products & startups
-* 🧠 Exploring emerging technology
-* 🛠️ Turning ideas into real projects
-* 📚 Learning, writing & sharing knowledge
-
-## Currently
-
-Building, learning, experimenting — and looking for the next interesting problem to solve.
+### Currently I am building [Minarat](https://github.com/team-minarat)
 
 ## **If you found something here that interests you, feel free to explore.** 
 ### Maybe we'll build something together someday. 🤝🏻
